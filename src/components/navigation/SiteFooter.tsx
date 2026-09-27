@@ -12,9 +12,9 @@ export function SiteFooter() {
             <span className="w-2 h-2 rounded-full bg-accent" />
             <span>{profile.name.toUpperCase()}</span>
           </div>
-          <p className="text-xs font-mono text-muted max-w-sm">
+          {/* <p className="text-xs font-mono text-muted max-w-sm">
             BUILT WITH NEXT.JS 15 · TYPESCRIPT · THREE.JS · TAILWIND CSS
-          </p>
+          </p> */}
           <p className="text-xs font-mono text-muted">
             {profile.location.toUpperCase()} · © {new Date().getFullYear()}
           </p>

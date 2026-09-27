@@ -60,9 +60,9 @@ export function ContactSection() {
 
         {/* Verified Channels */}
         <div className="lg:col-span-4 flex flex-col gap-3 font-mono text-xs">
-          <span className="text-muted uppercase text-[10px] tracking-widest mb-1">
+          {/* <span className="text-muted uppercase text-[10px] tracking-widest mb-1">
             VERIFIED ENDPOINTS
-          </span>
+          </span> */}
 
           <a
             href={profile.socials.github}
