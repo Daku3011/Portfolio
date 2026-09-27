@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://dwarkeshramani.runs-on.dev"; // Production URL
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://dwarkeshramani.runs-on.dev";
 
 export function constructMetadata({
   title = "Dwarkesh Ramani — Systems, AI & Full-Stack Engineer",
@@ -161,10 +162,11 @@ export function getPersonJsonLd() {
             description: "Competitive programming rebuilt for real engineers with GitHub webhook ingestion, FastAPI evaluation engine, and Gemini code mentorship.",
             url: `${SITE_URL}/work/minicode`,
             applicationCategory: "DeveloperApplication",
-            operatingSystem: "Web",
+            operatingSystem: "Web Browser, Linux, macOS, Windows",
             offers: {
               "@type": "Offer",
-              price: "0"
+              price: "0",
+              priceCurrency: "USD"
             }
           },
           {
@@ -173,7 +175,13 @@ export function getPersonJsonLd() {
             name: "AI Hackathon Judge",
             description: "Autonomous multi-persona AI consensus evaluation system for hackathon submissions with static AST and secret vulnerability scans.",
             url: `${SITE_URL}/work/ai-hackathon-judge`,
-            applicationCategory: "DeveloperApplication"
+            applicationCategory: "DeveloperApplication",
+            operatingSystem: "Linux, macOS, Windows, Docker",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD"
+            }
           },
           {
             "@type": "SoftwareApplication",
@@ -181,7 +189,41 @@ export function getPersonJsonLd() {
             name: "GitRemote",
             description: "Android mobile application paired with a local companion Node.js daemon for LAN git diff inspection and staging.",
             url: `${SITE_URL}/work/gitremote`,
-            applicationCategory: "DeveloperApplication"
+            applicationCategory: "DeveloperApplication",
+            operatingSystem: "Android, Linux, macOS, Windows",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            position: 4,
+            name: "Class Intelligence System",
+            description: "Departmental RAG system pairing ChromaDB vector embeddings and Google Gemini 1.5 Flash for cited academic question-answering.",
+            url: `${SITE_URL}/work/class-intelligence`,
+            applicationCategory: "EducationalApplication",
+            operatingSystem: "Web Browser, Linux, Docker",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            position: 5,
+            name: "HackerRank Orchestrate",
+            description: "Autonomous damage claim verification pipeline built with Pydantic validation schemas under 24-hour hackathon constraints.",
+            url: `${SITE_URL}/work/hackerrank-orchestrate`,
+            applicationCategory: "DeveloperApplication",
+            operatingSystem: "Linux, Docker, Cloud",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD"
+            }
           }
         ]
       },
