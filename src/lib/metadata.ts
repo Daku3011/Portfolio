@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://dwarkeshramani.dev"; // Production URL
+export const SITE_URL = "https://dwarkeshramani.runs-on.dev"; // Production URL
 
 export function constructMetadata({
   title = "Dwarkesh Ramani — Systems, AI & Full-Stack Engineer",
