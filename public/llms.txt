@@ -1,0 +1,52 @@
+# Dwarkesh Ramani — Build System
+> Personal Engineering Portfolio, AI Systems & Developer Tools
+
+## Personal Summary
+- Name: Dwarkesh Ramani
+- Handle: @Daku3011
+- Location: Surat, Gujarat, India
+- Role: Computer Engineering Student, Full-Stack Developer, AI Systems Builder
+- Primary Specialization: Next.js 15, FastAPI, Autonomous AI Agents, Applied LLMs, Distributed Systems, Developer Tooling
+- Email: rdwarkesh1300@gmail.com
+- Portfolio Website: https://dwarkeshramani.dev
+- GitHub: https://github.com/Daku3011
+- LinkedIn: https://linkedin.com/in/ramanidwarkesh
+
+## Core Flagship Projects
+
+### 1. MiniCode
+- Category: Competitive Programming & AI Code Mentorship
+- Description: Competitive programming platform rebuilt around authentic Git workflows. Instead of sterile browser sandboxes, developers push commits to real repositories and receive instant, constructive code critiques powered by Google Gemini and isolated Docker containers.
+- Stack: Next.js 15, FastAPI, PostgreSQL, Redis, Celery, Google Gemini 2.5, Docker, GitHub REST API
+- Repository: https://github.com/Daku3011/Minicode
+- Live URL: https://minicode-web.vercel.app
+
+### 2. AI Hackathon Judge
+- Category: Autonomous Multi-Agent Consensus System
+- Description: Multi-persona AI consensus evaluation framework (VC, CTO, Product Manager, UX Lead, Academic Professor) with parallel asyncio execution, git commit history auditing, credential leak sweeps, and multimodal pitch video frame evaluation.
+- Stack: Python, AsyncIO, Google Gemini 1.5 Pro, FastAPI, Git CLI, OpenCV
+- Repository: https://github.com/Daku3011/AI-Hackathon-Judge
+
+### 3. GitRemote
+- Category: Mobile Systems & Developer Tooling
+- Description: Android mobile application paired with a local companion Node.js daemon for LAN auto-discovery, syntax-highlighted diff inspection, and staging commits directly from mobile without external cloud dependencies.
+- Stack: React Native (Expo), Node.js, Express, mDNS / Bonjour, Git CLI
+- Repository: https://github.com/Daku3011/GitRemote
+
+### 4. Class Intelligence System
+- Category: Retrieval-Augmented Generation (RAG)
+- Description: Departmental RAG system pairing ChromaDB vector embeddings and Google Gemini 1.5 Flash for cited academic question-answering over lecture notes and syllabi.
+- Stack: Python, ChromaDB, Google Gemini Flash, FastAPI, LangChain, Next.js
+- Repository: https://github.com/Daku3011
+
+### 5. HackerRank Orchestrate
+- Category: Visual Claim Verification Pipeline
+- Description: 24-hour hackathon winner system verifying photographic proof against claims with structured Pydantic schemas.
+- Stack: Python, FastAPI, Gemini Flash, Pydantic, Docker
+
+## Technical Competencies
+- Frontend: Next.js 15 (App Router, Server Components), React 19, TypeScript, Tailwind CSS, Framer Motion, GSAP, Three.js
+- Backend: Python (FastAPI, AsyncIO), Node.js, Express, REST APIs, WebSockets
+- Database & Cache: PostgreSQL, Redis, ChromaDB (Vector Store)
+- AI & ML: Google Gemini 2.5/1.5 APIs, LangChain, RAG Architectures, Multi-Agent Swarms, Computer Vision (OpenCV, MediaPipe)
+- DevOps & Tooling: Docker, Git, Linux, GitHub Actions, Vercel, Postman

@@ -72,9 +72,12 @@ function ProjectItem({
             </span>
           </div>
 
-          {/* Project Title with smooth lift */}
-          <Link href={`/work/${project.slug}`} className="block focus:outline-none">
-            <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground uppercase font-sans group-hover:text-accent group-hover:-translate-y-1 transition-all duration-300">
+          {/* Project Title with smooth lift and glitch on hover */}
+          <Link href={`/work/${project.slug}`} className="block focus:outline-none group/title">
+            <h3
+              data-text={project.title}
+              className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground uppercase font-sans group-hover/title:text-accent group-hover/title:glitch-active group-hover/title:-translate-y-1 transition-all duration-300"
+            >
               {project.title}
             </h3>
           </Link>
@@ -181,12 +184,15 @@ export function SelectedWork() {
       className="w-full py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-8 border-b border-border/80 relative"
     >
       <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-border pb-6 mb-12 sm:mb-16">
-        <div className="flex items-baseline gap-4">
+        <div className="flex items-baseline gap-4 group/hdr cursor-default">
           <span className="font-mono text-xs sm:text-sm text-accent font-semibold tracking-wider">
             01
           </span>
           <span className="text-muted font-mono text-xs">/</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground uppercase font-sans">
+          <h2
+            data-text="SELECTED WORK"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground uppercase font-sans group-hover/hdr:glitch-active transition-all"
+          >
             SELECTED WORK
           </h2>
         </div>
@@ -195,7 +201,12 @@ export function SelectedWork() {
         <div className="flex items-center gap-4 font-mono text-xs self-start sm:self-auto">
           <div className="flex items-center gap-2 px-3 py-1 border border-border/80 bg-surface/60 text-slate-300">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span>FOCUS: {projects[activeProjectIdx].title.toUpperCase()}</span>
+            <span
+              data-text={`FOCUS: ${projects[activeProjectIdx].title.toUpperCase()}`}
+              className="hover:glitch-active transition-all"
+            >
+              FOCUS: {projects[activeProjectIdx].title.toUpperCase()}
+            </span>
           </div>
           <span className="text-muted text-[11px] hidden md:inline">
             [0{activeProjectIdx + 1} / 0{projects.length}]

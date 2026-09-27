@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowDownRight, Terminal, Github, Cpu, ExternalLink } from "lucide-react";
 import { profile } from "@/content/profile";
 import { ProfileVisualCard } from "./ProfileVisualCard";
+import { TypewriterHeadline } from "./TypewriterHeadline";
 import { Magnetic } from "@/components/ui/Magnetic";
 
 export function HeroSection() {
@@ -36,16 +37,11 @@ export function HeroSection() {
           {/* Left Column: Macro Typography */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
-              <div className="font-mono text-xs text-accent uppercase tracking-widest mb-4">
-                DWARKESH RAMANI
+              <div className="font-mono text-xs text-accent uppercase tracking-widest mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                <span>DWARKESH RAMANI // SYSTEMS & AI</span>
               </div>
-              <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tightest leading-[0.92] text-foreground uppercase">
-                I BUILD<br />
-                SOFTWARE<br />
-                <span className="text-accent">
-                  THAT MOVES.
-                </span>
-              </h1>
+              <TypewriterHeadline />
             </div>
 
             {/* Quick Actions & Meta */}

@@ -99,6 +99,7 @@ const QUOTES: QuoteItem[] = [
 export function DailyQuoteSection() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
+  const [isGlitching, setIsGlitching] = useState<boolean>(false);
 
   // Compute daily quote based on the day of the year
   useEffect(() => {
@@ -111,8 +112,16 @@ export function DailyQuoteSection() {
     setCurrentIndex(dailyIdx);
   }, []);
 
+  const triggerGlitch = () => {
+    setIsGlitching(true);
+    setTimeout(() => setIsGlitching(false), 420);
+  };
+
   const handleNextQuote = () => {
-    setCurrentIndex((prev) => (prev + 1) % QUOTES.length);
+    triggerGlitch();
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % QUOTES.length);
+    }, 120);
   };
 
   const handleCopy = () => {
@@ -137,12 +146,20 @@ export function DailyQuoteSection() {
         badge="DAILY SYSTEM RECORD"
       />
 
-      <div className="relative border border-border/80 bg-surface/40 p-8 sm:p-12 transition-all duration-300 hover:border-accent/40">
+      <div className={`relative border border-border/80 bg-surface/40 p-8 sm:p-12 transition-all duration-300 hover:border-accent/40 overflow-hidden ${isGlitching ? "border-accent/60 shadow-[0_0_24px_rgba(46,229,157,0.15)]" : ""}`}>
+        {/* CRT Scanline and Glitch Overlay */}
+        {isGlitching && (
+          <div
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,21,29,0)_50%,rgba(0,255,255,0.06)_50%)] bg-[length:100%_4px] opacity-70 z-10 animate-pulse"
+            aria-hidden="true"
+          />
+        )}
+
         {/* Engineering Header Badges */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/40 pb-6 mb-8 font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/40 pb-6 mb-8 font-mono text-xs relative z-20">
           <div className="flex items-center gap-3">
             <Quote className="w-4 h-4 text-accent" />
-            <span className="text-accent uppercase font-bold tracking-widest text-[11px]">
+            <span className={`text-accent uppercase font-bold tracking-widest text-[11px] ${isGlitching ? "glitch-active" : ""}`} data-text={`// ${activeQuote.domain}`}>
               {"// "}{activeQuote.domain}
             </span>
           </div>
@@ -152,9 +169,14 @@ export function DailyQuoteSection() {
           </div>
         </div>
 
-        {/* Large Quote Statement */}
-        <blockquote className="my-6">
-          <p className="text-xl sm:text-3xl md:text-4xl font-sans font-medium text-foreground tracking-tight leading-snug">
+        {/* Large Quote Statement with Glitch */}
+        <blockquote className="my-6 relative z-20">
+          <p
+            data-text={`“${activeQuote.quote}”`}
+            className={`text-xl sm:text-3xl md:text-4xl font-sans font-medium text-foreground tracking-tight leading-snug transition-all duration-150 ${
+              isGlitching ? "glitch-active text-accent" : ""
+            }`}
+          >
             &ldquo;{activeQuote.quote}&rdquo;
           </p>
         </blockquote>
