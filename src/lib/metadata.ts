@@ -66,7 +66,7 @@ export function getPersonJsonLd() {
     jobTitle: "Computer Engineering Student & Full-Stack / AI Engineer",
     sameAs: [
       "https://github.com/Daku3011",
-      "https://linkedin.com/in/dwarkesh-ramani"
+      "https://linkedin.com/in/ramanidwarkesh"
     ],
     knowsAbout: [
       "Software Engineering",

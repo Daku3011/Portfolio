@@ -1,7 +1,6 @@
 import React from "react";
 import { profile } from "@/content/profile";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { MapPin, Music, Cpu, Compass } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -9,63 +8,42 @@ export function AboutSection() {
       <SectionHeading
         number="06"
         title="ABOUT"
-        subtitle="The human behind the system."
         badge="ENGINEER"
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Narrative */}
-        <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
-          <p className="text-xl sm:text-2xl font-medium text-foreground">
-            I&apos;m <span className="text-accent font-semibold">{profile.name}</span>. A computer engineer who likes turning ambiguous ideas into working software.
+        {/* Strong Opener */}
+        <div className="lg:col-span-6 space-y-6">
+          <p className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-foreground">
+            I BUILD THINGS<br />
+            THAT WORK.
           </p>
-
-          {profile.bioParagraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          <p className="text-base sm:text-lg text-muted-foreground font-sans leading-relaxed">
+            Computer engineering student based in Surat. Moving between product development, multimodal AI systems, backend architectures, and experiments that started as &ldquo;what if we automated this?&rdquo;
+          </p>
         </div>
 
-        {/* Technical & Personal Context Plate */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="border border-border/80 bg-surface/50 p-6 font-mono text-xs space-y-6">
-            <div>
-              <div className="flex items-center gap-2 text-accent uppercase tracking-widest text-[10px] mb-2 font-bold">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>BASE OF OPERATIONS</span>
-              </div>
-              <p className="text-foreground text-sm font-semibold">
-                {profile.location}
-              </p>
-              <p className="text-muted text-[11px] mt-0.5">
-                Timezone: Indian Standard Time (UTC+05:30)
-              </p>
+        {/* Sparse Technical Grid */}
+        <div className="lg:col-span-6 border border-border/80 bg-surface/40 p-6 sm:p-8 font-mono text-xs">
+          <div className="space-y-4 divide-y divide-border/40">
+            <div className="flex items-center justify-between pb-3">
+              <span className="text-muted uppercase tracking-widest text-[11px]">BASED IN</span>
+              <span className="text-foreground font-semibold">{profile.location}</span>
             </div>
 
-            <div className="border-t border-border/40 pt-5">
-              <div className="flex items-center gap-2 text-accent uppercase tracking-widest text-[10px] mb-3 font-bold">
-                <Compass className="w-3.5 h-3.5" />
-                <span>INTERESTS & OBSESSIONS</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {profile.interests.map((interest) => (
-                  <span
-                    key={interest}
-                    className="px-2.5 py-1 border border-border bg-surface text-slate-300 text-xs"
-                  >
-                    {interest}
-                  </span>
-                ))}
-              </div>
+            <div className="flex items-center justify-between py-3">
+              <span className="text-muted uppercase tracking-widest text-[11px]">STUDYING</span>
+              <span className="text-foreground font-semibold">Computer Engineering</span>
             </div>
 
-            <div className="border-t border-border/40 pt-5">
-              <div className="flex items-center gap-2 text-accent uppercase tracking-widest text-[10px] mb-2 font-bold">
-                <Cpu className="w-3.5 h-3.5" />
-                <span>CORE DIRECTIVE</span>
-              </div>
-              <p className="text-slate-300 italic text-[11px] leading-relaxed">
-                &ldquo;Code is the highest-leverage medium to materialize an idea, stress-test it against reality, and give people tools that genuinely elevate their productivity.&rdquo;
-              </p>
+            <div className="flex items-center justify-between py-3">
+              <span className="text-muted uppercase tracking-widest text-[11px]">FOCUS</span>
+              <span className="text-accent font-semibold">Full-Stack · AI Systems · Developer Tools</span>
+            </div>
+
+            <div className="flex items-center justify-between pt-3">
+              <span className="text-muted uppercase tracking-widest text-[11px]">CURRENTLY</span>
+              <span className="text-slate-300">Building, experimenting, shipping</span>
             </div>
           </div>
         </div>

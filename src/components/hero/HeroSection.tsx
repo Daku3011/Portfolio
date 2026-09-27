@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowDownRight, Terminal, Github, Cpu, ExternalLink } from "lucide-react";
 import { profile } from "@/content/profile";
 import { SystemGraph } from "./SystemGraph";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 export function HeroSection() {
   return (
@@ -36,44 +37,42 @@ export function HeroSection() {
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
               <div className="font-mono text-xs text-accent uppercase tracking-widest mb-4">
-                DWARKESH RAMANI // SYSTEMS & PRODUCT ENGINEER
+                DWARKESH RAMANI
               </div>
               <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tightest leading-[0.92] text-foreground uppercase">
                 I BUILD<br />
                 SOFTWARE<br />
-                <span className="text-accent underline decoration-accent/30 decoration-wavy underline-offset-8">
+                <span className="text-accent">
                   THAT MOVES.
                 </span>
               </h1>
-
-              <div className="mt-8 sm:mt-10 max-w-xl">
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
-                  <strong className="text-foreground font-semibold">Computer Engineer. Full-Stack Developer. AI Builder.</strong>
-                  <br />
-                  I turn ambitious ideas into resilient software architectures, autonomous multimodal systems, and developer-first tools.
-                </p>
-              </div>
             </div>
 
             {/* Quick Actions & Meta */}
             <div className="mt-10 sm:mt-12 flex flex-wrap items-center gap-4 font-mono text-xs">
-              <a
-                href="#work"
-                className="group flex items-center gap-2 px-6 py-3.5 bg-accent text-background font-bold tracking-wider hover:bg-accent/90 transition-all active:scale-[0.98]"
-              >
-                <span>EXPLORE WORK</span>
-                <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
-              </a>
+              <Magnetic strength={0.25}>
+                <a
+                  href="#work"
+                  className="group flex items-center gap-2 px-6 py-3.5 bg-accent text-background font-bold tracking-wider hover:bg-accent/90 transition-all active:scale-[0.98]"
+                  data-magnetic="true"
+                >
+                  <span>EXPLORE WORK</span>
+                  <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
+                </a>
+              </Magnetic>
 
-              <a
-                href={profile.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-3.5 border border-border bg-surface hover:border-accent hover:text-accent text-foreground transition-all active:scale-[0.98]"
-              >
-                <Github className="w-4 h-4" />
-                <span>GITHUB / DAKU3011</span>
-              </a>
+              <Magnetic strength={0.2}>
+                <a
+                  href={profile.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-3.5 border border-border bg-surface hover:border-accent hover:text-accent text-foreground transition-all active:scale-[0.98]"
+                  data-magnetic="true"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GITHUB / DAKU3011</span>
+                </a>
+              </Magnetic>
 
               <a
                 href="#system"

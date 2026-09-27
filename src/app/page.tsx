@@ -7,11 +7,13 @@ import { LabSection } from "@/components/lab/LabSection";
 import { TechSystem } from "@/components/system/TechSystem";
 import { AboutSection } from "@/components/about/AboutSection";
 import { ContactSection } from "@/components/contact/ContactSection";
+import { MarqueeTicker } from "@/components/ui/MarqueeTicker";
 
 export default function HomePage() {
   return (
     <div className="w-full flex flex-col items-center">
       <HeroSection />
+      <MarqueeTicker />
       <SelectedWork />
       <PhilosophySection />
       <ExperienceTimeline />

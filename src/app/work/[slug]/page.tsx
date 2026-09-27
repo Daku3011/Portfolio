@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/content/projects";
-import { ProjectArchitectureViewer } from "@/components/projects/ProjectArchitectureViewer";
-import { ArrowLeft, ArrowUpRight, Github, ExternalLink, GitCommit, CheckCircle2, AlertTriangle, Lightbulb } from "lucide-react";
+import { CaseStudySvgDiagram } from "@/components/projects/CaseStudySvgDiagram";
+import { ArrowLeft, ArrowUpRight, Github, ExternalLink, CheckCircle2, AlertTriangle, Lightbulb } from "lucide-react";
 import { constructMetadata } from "@/lib/metadata";
 
 interface PageProps {
@@ -84,7 +84,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           ))}
         </div>
 
-        {/* Direct Action Links */}
+        {/* Action Links */}
         <div className="mt-8 flex flex-wrap items-center gap-4 font-mono text-xs">
           <a
             href={project.githubUrl}
@@ -122,7 +122,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
       </section>
 
       {/* 3. THE PROBLEM & THE IDEA */}
-      <section className="py-12 border-b border-border/80 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <section className="py-12 border-b border-border/80 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="border border-border/60 bg-surface/40 p-6 sm:p-8">
           <div className="flex items-center gap-2 font-mono text-xs font-bold text-rose-400 uppercase tracking-wider mb-4">
             <AlertTriangle className="w-4 h-4" />
@@ -136,7 +136,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
         <div className="border border-accent/30 bg-surface/40 p-6 sm:p-8">
           <div className="flex items-center gap-2 font-mono text-xs font-bold text-accent uppercase tracking-wider mb-4">
             <Lightbulb className="w-4 h-4" />
-            <span>THE IDEA & ARCHITECTURAL ANGLE</span>
+            <span>THE IDEA & APPROACH</span>
           </div>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
             {project.idea}
@@ -144,7 +144,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 4. SYSTEM ARCHITECTURE & EXECUTION FLOW */}
+      {/* 4. SYSTEM ARCHITECTURE (SVG VECTOR DIAGRAM) */}
       <section className="py-12 border-b border-border/80">
         <h2 className="font-mono text-xs font-bold text-accent uppercase tracking-widest mb-6">
           02 // SYSTEM ARCHITECTURE & DATA FLOW
@@ -153,51 +153,75 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           {project.architecture.overview}
         </p>
 
-        <ProjectArchitectureViewer
-          nodes={project.architecture.nodes}
-          flow={project.architecture.flow}
-        />
-      </section>
+        <CaseStudySvgDiagram slug={project.slug} />
 
-      {/* 5. TECHNICAL DECISIONS */}
-      <section className="py-12 border-b border-border/80">
-        <h2 className="font-mono text-xs font-bold text-accent uppercase tracking-widest mb-8">
-          03 // ENGINEERING DECISIONS & TRADE-OFFS
-        </h2>
-        <div className="space-y-6">
-          {project.decisions.map((decision, index) => (
-            <div
-              key={index}
-              className="p-6 border border-border/80 bg-surface/50 flex flex-col gap-2"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-mono text-xs">
-                <span className="text-muted uppercase tracking-wider">
-                  TOPIC: {decision.topic}
-                </span>
-                <span className="text-accent font-semibold">
-                  CHOICE: {decision.choice}
-                </span>
-              </div>
-              <p className="text-sm text-slate-300 font-sans leading-relaxed mt-2">
-                <strong className="text-foreground font-medium">Rationale:</strong> {decision.rationale}
-              </p>
+        <div className="mt-8 space-y-2 font-mono text-xs">
+          <span className="block text-[10px] uppercase text-muted tracking-wider mb-2">
+            DETAILED EXECUTION SEQUENCE
+          </span>
+          {project.architecture.flow.map((step, idx) => (
+            <div key={idx} className="flex items-start gap-3 p-3 border border-border/40 bg-surface/20">
+              <span className="text-accent font-bold">0{idx + 1} →</span>
+              <span className="text-slate-300">{step}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 6. CHALLENGES & MITIGATIONS */}
+      {/* 5. TECHNICAL DECISION BLOCKS (Layer 14 Format) */}
+      <section className="py-12 border-b border-border/80">
+        <h2 className="font-mono text-xs font-bold text-accent uppercase tracking-widest mb-8">
+          03 // TECHNICAL DECISIONS & TRADE-OFFS
+        </h2>
+        <div className="space-y-6">
+          {project.decisions.map((decision, index) => (
+            <div
+              key={index}
+              className="p-6 border border-border/80 bg-surface/50 font-mono text-xs space-y-3"
+            >
+              <div>
+                <span className="text-muted text-[10px] uppercase tracking-widest block mb-1">
+                  DECISION
+                </span>
+                <span className="text-foreground text-sm font-bold">
+                  {decision.choice}
+                </span>
+              </div>
+
+              <div className="pt-2 border-t border-border/40">
+                <span className="text-muted text-[10px] uppercase tracking-widest block mb-1">
+                  ALTERNATIVES CONSIDERED
+                </span>
+                <span className="text-slate-300 text-xs">
+                  {decision.topic}
+                </span>
+              </div>
+
+              <div className="pt-2 border-t border-border/40 font-sans">
+                <span className="font-mono text-accent text-[10px] uppercase tracking-widest block mb-1">
+                  WHY
+                </span>
+                <p className="text-muted-foreground text-xs leading-relaxed">
+                  {decision.rationale}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. CHALLENGE / HOW PAIRS (Layer 14 Format) */}
       <section className="py-12 border-b border-border/80">
         <h2 className="font-mono text-xs font-bold text-accent uppercase tracking-widest mb-6">
-          04 // HARD TECHNICAL CHALLENGES
+          04 // CHALLENGES & RESOLUTIONS
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-4 font-mono text-xs">
           {project.challenges.map((challenge, i) => (
-            <div key={i} className="flex items-start gap-3 p-4 border border-border/60 bg-surface/30">
-              <span className="font-mono text-accent text-xs font-bold mt-0.5">
-                0{i + 1}
-              </span>
-              <p className="text-sm text-slate-300 font-sans leading-relaxed">
+            <div key={i} className="p-5 border border-border/60 bg-surface/30 space-y-2">
+              <div className="text-rose-400 font-bold tracking-wider uppercase text-[11px]">
+                CHALLENGE // 0{i + 1}
+              </div>
+              <p className="text-foreground font-sans text-xs leading-relaxed">
                 {challenge}
               </p>
             </div>
@@ -205,7 +229,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 7. RESULTS & OUTCOMES */}
+      {/* 7. VERIFIED RESULTS & OUTCOMES */}
       <section className="py-12 border-b border-border/80">
         <h2 className="font-mono text-xs font-bold text-accent uppercase tracking-widest mb-6">
           05 // VERIFIED OUTCOMES
@@ -214,7 +238,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           {project.outcomes.map((outcome, idx) => (
             <div key={idx} className="p-4 border border-border/60 bg-surface/40 flex items-start gap-3">
               <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-              <p className="text-sm text-slate-300 font-sans leading-relaxed">
+              <p className="text-xs text-slate-300 font-sans leading-relaxed">
                 {outcome}
               </p>
             </div>

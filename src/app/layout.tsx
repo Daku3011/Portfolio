@@ -4,6 +4,11 @@ import "@/styles/globals.css";
 import { constructMetadata, getPersonJsonLd } from "@/lib/metadata";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { SiteFooter } from "@/components/navigation/SiteFooter";
+import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { SplashScreen } from "@/components/ui/SplashScreen";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { PageTransition } from "@/components/ui/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -40,7 +45,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-accent/20 selection:text-white flex flex-col font-sans">
+      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-accent/20 selection:text-white flex flex-col font-sans relative">
         {/* Skip to Content for WCAG Accessibility */}
         <a
           href="#main-content"
@@ -49,11 +54,21 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        <SiteHeader />
-        <main id="main-content" className="flex-1 w-full flex flex-col">
-          {children}
-        </main>
-        <SiteFooter />
+        {/* Global Precision Layers */}
+        <SplashScreen />
+        <CustomCursor />
+        <NoiseOverlay />
+
+        {/* Smooth Scroll Container */}
+        <SmoothScrollProvider>
+          <SiteHeader />
+          <PageTransition>
+            <main id="main-content" className="flex-1 w-full flex flex-col">
+              {children}
+            </main>
+          </PageTransition>
+          <SiteFooter />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
