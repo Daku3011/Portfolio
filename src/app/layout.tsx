@@ -9,6 +9,7 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SplashScreen } from "@/components/ui/SplashScreen";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { PageTransition } from "@/components/ui/PageTransition";
+import { EasterEggs } from "@/components/ui/EasterEggs";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
         <SplashScreen />
         <CustomCursor />
         <NoiseOverlay />
+        <EasterEggs />
 
         {/* Smooth Scroll Container */}
         <SmoothScrollProvider>

@@ -1,13 +1,13 @@
 import React from "react";
 import { HeroSection } from "@/components/hero/HeroSection";
+import { MarqueeTicker } from "@/components/ui/MarqueeTicker";
 import { SelectedWork } from "@/components/projects/SelectedWork";
-import { PhilosophySection } from "@/components/philosophy/PhilosophySection";
+import { DailyQuoteSection } from "@/components/quotes/DailyQuoteSection";
 import { ExperienceTimeline } from "@/components/experience/ExperienceTimeline";
 import { LabSection } from "@/components/lab/LabSection";
 import { TechSystem } from "@/components/system/TechSystem";
 import { AboutSection } from "@/components/about/AboutSection";
 import { ContactSection } from "@/components/contact/ContactSection";
-import { MarqueeTicker } from "@/components/ui/MarqueeTicker";
 
 export default function HomePage() {
   return (
@@ -15,7 +15,7 @@ export default function HomePage() {
       <HeroSection />
       <MarqueeTicker />
       <SelectedWork />
-      <PhilosophySection />
+      <DailyQuoteSection />
       <ExperienceTimeline />
       <LabSection />
       <TechSystem />

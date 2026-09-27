@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowDownRight, Terminal, Github, Cpu, ExternalLink } from "lucide-react";
 import { profile } from "@/content/profile";
-import { SystemGraph } from "./SystemGraph";
+import { ProfileVisualCard } from "./ProfileVisualCard";
 import { Magnetic } from "@/components/ui/Magnetic";
 
 export function HeroSection() {
@@ -84,13 +84,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Interactive System Topology Graph */}
+          {/* Right Column: Operator Visual Profile Card */}
           <div className="lg:col-span-5 flex flex-col gap-3">
-            <SystemGraph />
-            <div className="flex items-center justify-between text-[11px] font-mono text-muted px-1">
-              <span>NODES: 5 VERIFIED REPOSITORIES</span>
-              <span>PARALLEL WEBSOCKET / REST ENGINE</span>
-            </div>
+            <ProfileVisualCard />
           </div>
         </div>
       </div>
