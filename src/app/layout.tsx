@@ -10,6 +10,7 @@ import { SplashScreen } from "@/components/ui/SplashScreen";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { EasterEggs } from "@/components/ui/EasterEggs";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -71,6 +72,7 @@ export default function RootLayout({
           </PageTransition>
           <SiteFooter />
         </SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
